@@ -1,0 +1,221 @@
+<html>
+    <head>
+        <title>Orbit Analytics - SR Closing Template</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .code-fix-details {
+				display: none;
+            }
+            .template {
+				display: none;
+				padding-top: 50px;
+            }
+            #fix,
+            #code_fix,
+            #one_off_patch {
+				text-transform: capitalize;
+            }
+			#copy_btn{
+				display: none;
+			}
+        </style>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- jQuery first, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh6U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        </body>
+    </head>
+    <body>
+        <div class="container">
+            <div class="text-center heading-section">
+                <h3>SR Closing Template</h3>
+                <small class="text-muted">Fill out the following form and click on Generate Template button</small>
+            </div>
+            <div class="form-group issue-summary">
+                <label for="Issue Summary">Issue Summary:*</label>
+                <input type="text" class="form-control" id="issue_summary" name="Issue Summary" placeholder="Describe the issue here. Use keywords for easy search in case if the issue comes up again.">
+            </div>
+            <div class="form-group resolution">
+                <label for="Resolution">Resolution:*</label>
+                <textarea class="form-control" rows="5" id="Resolution" required placeholder="Describe the resolution or work around provided to the customer"></textarea>
+            </div>
+            <div class="form-group reported-version">
+                <label>Reported Version:</label>
+                <select id="Reported_Version">
+                    <optgroup label="Orbit">
+                        <option value="Orbit 8.6.03">Orbit 8.6.03</option>
+                        <option value="Orbit 8.6.02">Orbit 8.6.02</option>
+                        <option value="Orbit 8.6.01">Orbit 8.6.01</option>
+                        <option value="Orbit 8.6">Orbit 8.6</option>
+                        <option value="Orbit 8.6">Orbit 8.6.03</option>
+                        <option value="Orbit 8.5.09">Orbit 8.5.09</option>
+                        <option value="Orbit 8.5.06">Orbit 8.5.06</option>
+                        <option value="Orbit 8.5.04">Orbit 8.5.04</option>
+                        <option value="Orbit 8.5.01">Orbit 8.5.01</option>
+                        <option value="Orbit 8.5">Orbit 8.5</option>
+                    </optgroup>
+                    <optgroup label="RWB">
+                        <option value="RWB 10.7.5.6">RWB 10.7.5.6</option>
+                        <option value="RWB 10.7.5.4">RWB 10.7.5.4</option>
+                        <option value="RWB 10.7.5.2">RWB 10.7.5.2</option>
+                        <option value="RWB 10.7.5.1">RWB 10.7.5.1</option>
+                        <option value="RWB 10.7.5">RWB 10.7.5</option>
+                        <option value="RWB 10.7.4">RWB 10.7.4</option>
+                        <option value="RWB 10.7.3">RWB 10.7.3</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="form-group codefix">
+                <label>Does this issue has a code fix?:</label>
+                <input type="radio" name="codefix" value="yes">Yes
+                <input type="radio" name="codefix" value="no" checked="checked">No
+            </div>
+            <div class="code-fix-details">
+                <div class="form-group one-off-patch">
+                    <label>Is one-off-patch provided?:</label>
+                    <input type="radio" name="one-off-patch" value="yes">Yes
+                    <input type="radio" name="one-off-patch" checked="checked" value="no">No
+                </div>
+                <div class="form-group fixed-version">
+                    <label>Fixed Version:</label>
+                    <select id="fixed_version">
+                        <optgroup label="Orbit">
+                            <option value="Orbit 8.6.03">Orbit 8.6.03</option>
+                            <option value="Orbit 8.6.02">Orbit 8.6.02</option>
+                            <option value="Orbit 8.6.01">Orbit 8.6.01</option>
+                            <option value="Orbit 8.6">Orbit 8.6</option>
+                            <option value="Orbit 8.6">Orbit 8.6.03</option>
+                            <option value="Orbit 8.5.09">Orbit 8.5.09</option>
+                            <option value="Orbit 8.5.06">Orbit 8.5.06</option>
+                            <option value="Orbit 8.5.04">Orbit 8.5.04</option>
+                            <option value="Orbit 8.5.01">Orbit 8.5.01</option>
+                            <option value="Orbit 8.5">Orbit 8.5</option>
+                        </optgroup>
+                        <optgroup label="RWB">
+                            <option value="RWB 10.7.5.6">RWB 10.7.5.6</option>
+                            <option value="RWB 10.7.5.4">RWB 10.7.5.4</option>
+                            <option value="RWB 10.7.5.2">RWB 10.7.5.2</option>
+                            <option value="RWB 10.7.5.1">RWB 10.7.5.1</option>
+                            <option value="RWB 10.7.5">RWB 10.7.5</option>
+                            <option value="RWB 10.7.4">RWB 10.7.4</option>
+                            <option value="RWB 10.7.3">RWB 10.7.3</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group knowledge-base">
+                <label>Did you create any knowledge base for this issue?:</label>
+                <input type="radio" name="knowledgebase" id="yes" disabled="disabled" value="Yes">Yes
+                <input type="radio" name="knowledgebase" id="no" checked="checked" value="No">No
+            </div>
+            <button type="button" id="generate_template" class="btn btn-success">Generate Template</button>
+			<div class="text-center template">
+				<h4>Your template is ready!</h3>
+				<small class="text-muted">Copy-Paste the content inside below box to your SR.</small>
+			</div>
+            <div class="form-group template jumbotron" id="template_text">
+                <div class="form-group template-issue-summary">
+                    <h6>
+                        Issue Summary
+                    </h6>
+                    <p id="issuesummary"></p>
+                </div>
+                <div class="form-group template-resolution">
+                    <h6>
+                        Resolution
+                    </h6>
+                    <p id="resolution"></p>
+                </div>
+                <div class="form-group template-reported-version">
+                    <h6>
+                        Reported Version
+                    </h6>
+                    <p id="reportedversion"></p>
+                </div>
+                <div class="form-group template-has-code-fix">
+                    <h6>
+                        Does this issue has a code fix?
+                    </h6>
+                    <p id="code_fix"></p>
+                </div>
+                <div class="form-group template-one-off-patch">
+                    <h6>
+                        Is one-off-patch provided?
+                    </h6>
+                    <p id="one_off_patch"></p>
+                </div>
+                <div class="form-group template-fixed-version">
+                    <h6>
+                        Fixed Version
+                    </h6>
+                    <p id="template_fixed_version"></p>
+                </div>
+                <div class="form-group template-knowledge-base">
+                    <h6>
+                        Did you create any knowledge base for this issue?
+                    </h6>
+                    <p id="knowledge_base"></p>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+            $('input:radio[name=codefix]').change(function() {
+             if (this.value == 'yes') {
+               $(".code-fix-details").show();
+             } else {
+               $(".code-fix-details").hide();
+             }
+            });
+            });
+            
+            $(document).ready(function() {
+            
+            $("#generate_template").click(function() {
+             var issuesummary = $("#issue_summary").val();            
+             var resolution = $("#Resolution").val();
+			 
+			 if(!issuesummary || !resolution){
+				alert("Please fill out Issue Summary and Resolution");
+				return;
+			 }
+			 
+			 $(".template").show();
+			 $("#issuesummary").html(issuesummary);
+			 $("#resolution").html(resolution);
+            
+             var reportedversion = $("#Reported_Version").val();
+             $("#reportedversion").html(reportedversion);
+            
+             var has_code_fix = $("input[name='codefix']:checked").val();
+             $("#code_fix").html(has_code_fix);
+            
+            
+             if (has_code_fix == 'yes') {
+               // $(".template-one-off-patch").show();
+               var one_off_patch = $("input[name='one-off-patch']:checked").val();
+               $("#one_off_patch").html(one_off_patch);
+            
+               //$(".template-fixed-version").show();
+               var fixedversion = $("#fixed_version").val();
+               $("#template_fixed_version").html(fixedversion);
+            
+             } else {
+               $("#template_fixed_version").html("N/A");
+               $("#one_off_patch").html("N/A");
+               // $(".template-one-off-patch").hide();
+               //  $(".template-fixed-version").hide();
+             }
+            
+            
+             var knowledge_base = $("input[name='knowledgebase']:checked").val();
+             $("#knowledge_base").html(knowledge_base);
+            
+            });
+            });
+            
+        </script>
+    </body>
+</html>
