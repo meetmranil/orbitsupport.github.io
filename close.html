@@ -16,9 +16,12 @@
             #one_off_patch {
 				text-transform: capitalize;
             }
-			#copy_btn{
-				display: none;
-			}
+	    #copy_btn{
+		display: none;
+	   }
+	   .wrap{
+		   word-wrap: break-word;
+	   }
         </style>
 	<link rel="shortcut icon" href="https://orbitanalytics.com/favicon.ico" type="image/x-icon" />
         <!-- Bootstrap CSS -->
@@ -122,13 +125,13 @@
                     <h6>
                         Issue Summary
                     </h6>
-                    <p id="issuesummary"></p>
+                    <p class="wrap" id="issuesummary"></p>
                 </div>
                 <div class="form-group template-resolution">
                     <h6>
                         Resolution
                     </h6>
-                    <p id="resolution"></p>
+                    <p class="wrap" id="resolution"></p>
                 </div>
                 <div class="form-group template-reported-version">
                     <h6>
