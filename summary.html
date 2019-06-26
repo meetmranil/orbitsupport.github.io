@@ -1,0 +1,168 @@
+<html>
+   <head>
+      <title>Orbit Analytics - Customer call summary</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+         .code-fix-details {
+         display: none;
+         }
+         .template {
+         display: none;
+         padding-top: 50px;
+         }
+         #fix,
+         #code_fix,
+         #one_off_patch {
+         text-transform: capitalize;
+         }
+         #copy_btn{
+         display: none;
+         }
+         .wrap{
+         word-wrap: break-word;
+         }
+      </style>
+      <link rel="shortcut icon" href="https://orbitanalytics.com/favicon.ico" type="image/x-icon" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!-- jQuery first, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh6U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      </body>
+   </head>
+   <body>
+      <div class="container">
+         <div class="text-center heading-section">
+            <h3>Customer call summary</h3>
+            <small class="text-muted">Fill out the following form and click on Generate Template button</small>
+         </div>
+         <hr>
+         <div class="form-group Attendess">
+            <label for="Attendess"><b>Attendees:*</b></label><br/>
+            <label>From Orbit:</label><br/>
+            <input type="text" class="form-control" id="from_orbit" name="From orbit" placeholder="Enter the name(s) of Employees who joined the call">
+         <label>From Customer:</label><br/>
+            <input type="text" class="form-control" id="from_customer" name="From customer" placeholder="Enter the name(s) of client POCs who joined the call">
+           </div>
+         
+         <div class="form-group Call Summary">
+            <label for="Call Sumamry"><b>Call Summary:*</b></label>
+            <textarea class="form-control" rows="5" id="call_summary" required placeholder="Describe the resolution/work around or triaging details discussed with the customer in call"></textarea>
+         </div>
+       <div class="form-group Files Requested from Customer">
+            <label for="Files requested from Customer"><b>Files Requested from Customer:</b></label>
+            <textarea class="form-control" rows="1" id="Files_requested_from_customer" required placeholder="Enter the file names requested from Customer"></textarea>
+         </div>
+       <div class="form-group Next Action plan">
+            <label for="Next Action plan"><b>Next Action Plan:</b></label>
+            <textarea class="form-control" rows="3" id="next_action_plan" requried placeholder="Please specifiy the next action plan"></textarea>
+            </div>
+         <div class="form-group Follow-up call Schedule ">
+               <label for="Follow-up call Schedule"><b>Follow-up Call Schedule</b></label>
+               <input type="date" name="" class="form-control col-sm-3" id="follow-up_call_schedule" required placeholder="Enter the next follow-up call if Scheduled">
+            </div>
+        
+         <!--div class="form-group reported-version">
+       
+         </div-->
+         <button type="button" id="generate_template" class="btn btn-success">Generate Template</button>
+         <div class="text-center template">
+            <h4>
+            Your template is ready!</h3>
+            <small class="text-muted">Copy-Paste the content inside below box to your SR.</small>
+         </div>
+         <div class="form-group template jumbotron" id="template_text">
+            <div class="form-group template-call-summary">
+               <h6>
+                  Attendees
+               </h6>
+               <p class="wrap" id="callsummary6"></p>
+            </div>
+            <div class="form-group template-call-summary">
+               <h6>
+                  From Orbit:
+               </h6>
+               <p class="wrap" id="fromOrbit"></p>
+            </div>
+          <div class="form-group template-call-summary">
+               <h6>
+                   From Customer:
+               </h6>
+               <p class="wrap" id="fromCustomer"></p>
+            </div>
+         <div class="form-group template-call-summary">
+               <h6>
+                  Call Summary:
+              </h6>
+               <p class="wrap" id="callSummary"></p>
+            </div>
+         <div class="form-group template-call-summary">
+               <h6>
+                  Files Requested From Customer:
+              </h6>
+               <p class="wrap" id="filesRequested"></p>
+            </div>
+         <div class="form-group template-call-summary">
+         <h6>
+                  Next Action plan:
+              </h6>
+               <p class="wrap" id="nextAction"></p>
+            </div>
+         <div class="form-group template-call-summary">
+         <h6>
+                  Follow-up call:
+              </h6>
+               <p class="wrap" id="followUpCall"></p>
+            </div>
+         
+           
+         </div>
+      </div>
+      <script type="text/javascript">
+        /* $(document).ready(function() {
+         $('input:radio[name=codefix]').change(function() {
+          if (this.value == 'yes') {
+            $(".code-fix-details").show();
+          } else {
+            $(".code-fix-details").hide();
+          }
+         });
+         });*/
+         
+         $(document).ready(function() {
+         
+         $("#generate_template").click(function() {
+            var orbit = $("#from_orbit").val();
+         var customer=$("#from_customer").val();
+         var callsummary=$("#call_summary").val();
+         var filesrequested=$("#Files_requested_from_customer").val();
+         var nextactionplan=$("#next_action_plan").val();
+         var followupcall=$("#follow-up_call_schedule").val();
+          
+      
+         if(!orbit || !customer || !callsummary){
+         alert("Please fill out * required fields");
+         return ;
+         }
+         $(".template").show();
+         $("#fromOrbit").html(orbit);
+       $("#fromCustomer").html(customer);
+       $("#callSummary").html(callsummary);
+         /*else if (!filesrequested || !nextactionplan || !followupcall) {*/
+            if (!filesrequested){
+               $("#filesRequested").html("N/A");}
+               else $("#filesRequested").html(filesrequested);
+               if (!nextactionplan){
+               $("#nextAction").html("N/A");}
+               else $("#nextAction").html(nextactionplan);
+               if (!followupcall){
+               $("#followUpCall").html("N/A");}
+               else $("#followUpCall").html(followupcall);
+       
+         });
+         });
+         
+      </script>
+   </body>
+</html>
