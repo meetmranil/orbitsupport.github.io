@@ -1,0 +1,309 @@
+<html>
+   <head>
+      <title>Orbit Analytics - SR Triage Template</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+         .code-fix-details {
+         display: none;
+         }
+         .template {
+         display: none;
+         padding-top: 50px;
+         }
+         #fix,
+         #code_fix,
+         #one_off_patch {
+         text-transform: capitalize;
+         }
+         #copy_btn {
+         display: none;
+         }
+         .wrap {
+         word-wrap: break-word;
+         }
+      </style>
+      <link rel="shortcut icon" href="https://orbitanalytics.com/favicon.ico" type="image/x-icon" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!-- jQuery first, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh6U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <div class="container">
+         <h1>SR Triage Template</h1>
+         <small class="text-muted">Fill out the following form and click on Generate Template button</small>
+         <hr>
+         <div class="form-group Problem-Summary">
+            <label for="Problem Summary">Problem Summary:*</label>
+            <input type="text" class="form-control" id="problem_summary" name="Problem Summary" placeholder="Describe the issue here. Use keywords for easy search in case if the issue comes up again.">
+         </div>
+         <div class="form-group Problem-Description">
+            <label for="Problem Description">Problem Description:*</label>
+            <textarea class="form-control" rows="5" id="problem_description" required placeholder="Describe the problem_description"></textarea>
+            <!-- <input type="text" class="form-control" id="problem_description" name="Problem Description"> -->
+         </div>
+         <div class="form-group Error-Codes">
+            <label for="Error Codes">Error Codes:</label>
+            <input type="text" class="form-control" id="Error_Codes" name="Problem Description">
+         </div>
+         <div class="form-group Problem-Category/Subcategory">
+            <label for="Problem Category/Subcategory">Problem Category/Subcategory:</label>
+            <input type="text" class="form-control" id="Problem_CategorySubcategory" name="Problem Category/Subcategory">
+         </div>
+         <div class="form-group Customer-Type">
+            <label>Customer Type:</label>
+            <select id="Customer_Type">
+               <option value="Support">Support</option>
+               <option value="Implimentation">Implementation</option>
+               <option value="POC ">POC</option>
+            </select>
+         </div>
+         <div class="form-group Uploaded-Files">
+            <label for="Uploaded Files">Uploaded Files:</label>
+            <input type="text" class="form-control" id="Uploaded_Files" name="Uploaded Files">
+         </div>
+         <div class="form-group Environment-Details">
+            <label for="Environment Details">Environment Details:</label>
+            <div class="form-group Test-or-Production-or-QA">
+               <label for="Problem Summary">1) Test or Production or QA:</label>
+               <input type="text" class="form-control" id="Test_or_Production_or_QA" name="Test or Production or QA">
+            </div>
+            <div class="form-group OS">
+               <label for="Problem Summary">2) OS:</label>
+               <input type="text" class="form-control" id="OS" name="OS">
+            </div>
+            <div class="form-group Version-of-OrbitRWB ">
+               <label for="Version of OrbitRWB">3) Version of Orbit/RWB :</label>
+               <input type="text" class="form-control" id="Version_of_Orbit_RWB" name="Version of OrbitRWB ">
+            </div>
+            <div class="form-group Server-details ">
+               <label for="Server details">4) Server details :</label>
+               <input type="text" class="form-control" id="Server_details" name="Server details ">
+            </div>
+            <div class="form-group Database ">
+               <label for="Database ">5) Database :</label>
+               <input type="text" class="form-control" id="Database" name="Database ">
+            </div>
+         </div>
+         <div class="form-group Steps-to-reproduce">
+            <label for="Steps to reproduce">Steps to reproduce:</label>
+            <textarea class="form-control" rows="5" id="Steps_to_reproduce"></textarea>
+            <!-- <input type="text" class="form-control" id="Steps_to_reproduce" name="Steps to reproduce"> -->
+         </div>
+         <div class="form-group Other-Information">
+            <label for="Other Information">Other Information:</label>
+            <div class="form-group Responsibility-and/or-Navigation">
+               <label for="Problem Summary">1) Responsibility and/or Navigation:</label>
+               <input type="text" class="form-control" id="Responsibility_andor_Navigation" name="Responsibility and/or Navigation">
+            </div>
+            <div class="form-group Issue-user-customer">
+               <label for="Problem Summary">2) Does this issue only happen for this user / customer?:</label>
+               <input type="text" class="form-control" id="Issue_user_customer" name="Issue user customer">
+            </div>
+            <div class="form-group feature-work-in-the past">
+               <label for="Problem Summary">3) Did this feature work in the past? If so, please list any changes that were done:</label>
+               <input type="text" class="form-control" id="feature_work_in_the_past" name="Problem Summary">
+            </div>
+            <div class="form-group consistently-reproducible">
+               <label for="Problem Summary">4) Is this consistently reproducible?:</label>
+               <input type="radio" name="consistentlyreproducible" value="Yes">Yes
+               <input type="radio" name="consistentlyreproducible" checked="checked" value="No">No
+               <!--  <input type="text" class="form-control" id="consistently_reproducible" name="consistently reproducible"> -->
+            </div>
+         </div>
+         <button type="button" id="generate_template" class="btn btn-primary">Generate Template</button>
+         <div class="form-group template">
+         </div>
+         <div class="text-center template">
+            <h4>
+               Your template is ready!
+            </h4>
+            <small class="text-muted">Copy-Paste the content inside below box to your SR.</small>
+         </div>
+         
+         <div class="form-group template jumbotron" id="template_text">
+			<h5 class="SR text-center">SR Triage Template</h3>
+            <div class="form-group template-Problem-Summary">
+               <h6>
+                  Problem Summary
+               </h6>
+               <p id="problemsummary"></p>
+            </div>
+            <div class="form-group template-Problem-Description">
+               <h6>
+                  Problem Description:
+               </h6>
+               <p id="problemdescription"></p>
+            </div>
+            <div class="form-group template-Error-Codes">
+               <h6>
+                  Error Codes:
+               </h6>
+               <p id="ErrorCodes"></p>
+            </div>
+            <div class="form-group template-Problem-CategorySubcategory">
+               <h6>
+                  Problem Category/Subcategory:
+               </h6>
+               <p id="ProblemCategorySubcategory"></p>
+            </div>
+            <div class="form-group template-Customer-Type">
+               <h6>
+                  Customer Type:
+               </h6>
+               <p id="CustomerType"></p>
+            </div>
+            <div class="form-group template-Uploaded-Files">
+               <h6>
+                  Uploaded Files:
+               </h6>
+               <p id="UploadedFiles"></p>
+            </div>
+            <div class="form-group template-Environment-Details">
+               <h6>
+                  <p style="text-decoration: underline;">
+                     Environment Details:
+                  </p>
+               </h6>
+               <p id="EnvironmentDetails"></p>
+            </div>
+            <div class="form-group template-Test-or-Production-or-QA">
+               <h6>
+                  1) Test or Production or QA:
+               </h6>
+               <p id="TestorProductionorQA"></p>
+            </div>
+            <div class="form-group template-OS">
+               <h6>
+                  2) OS:
+               </h6>
+               <p id="O_S"></p>
+            </div>
+            <div class="form-group template-Version-of-OrbitRWB">
+               <h6>
+                  3) Version of Orbit/RWB:
+               </h6>
+               <p id="VersionofOrbitRWB"></p>
+            </div>
+            <div class="form-group template-Server-details">
+               <h6>
+                  4) Server details:
+               </h6>
+               <p id="Serverdetails"></p>
+            </div>
+            <div class="form-group template-Database">
+               <h6>
+                  5) Database:
+               </h6>
+               <p id="Data_base"></p>
+            </div>
+            <div class="form-group template-Steps-to-reproduce">
+               <h6>
+                  Steps to reproduce:
+               </h6>
+               <p id="Stepstoreproduce"></p>
+            </div>
+            <div class="form-group template-Steps-to-reproduce">
+               <h6>
+                  <p style="text-decoration: underline;">
+                     Other Information:
+                  </p>
+               </h6>
+               <p id="OtherInformation"></p>
+            </div>
+            <div class="form-group template-Responsibility-and/or-Navigation:">
+               <h6>
+                  1)Responsibility and/or Navigation:
+               </h6>
+               <p id="ResponsibilityandorNavigation"></p>
+            </div>
+            <div class="form-group template-Does-this-issue-only-happen-for-this-user">
+               <h6>
+                  2) Does this issue only happen for this user / customer?
+               </h6>
+               <p id="Doesthisissueonlyhappenforthisuser"></p>
+            </div>
+            <div class="form-group template-Did-this-feature-work-in-the-past">
+               <h6>
+                  3) Did this feature work in the past? If so, please list any changes that were done:
+               </h6>
+               <p id="Didthisfeatureworkinthepast"></p>
+            </div>
+            <div class="form-group template-Is-this-consistently-reproducible">
+               <h6>
+                  4) Is this consistently reproducible?
+               </h6>
+               <p id="Isthisconsistently_reproducible"></p>
+            </div>
+         </div>
+      </div>
+      <script type="text/javascript">
+         $(document).ready(function() {
+         
+          $("#generate_template").click(function() {
+         
+            $(".template").show();
+            var problemsummary = $("#problem_summary").val();
+            $("#problemsummary").html(problemsummary);
+         
+            var problemdescription = $("#problem_description").val();
+            $("#problemdescription").html(problemdescription);
+         
+            if (!problemsummary || !problemdescription) {
+              alert("Please fillout problem summary and problem description");
+              return;
+            }
+         
+            var ErrorCodes = $("#Error_Codes").val();
+            $("#ErrorCodes").html(ErrorCodes);
+         
+            var ProblemCategorySubcategory = $("#Problem_CategorySubcategory").val();
+            $("#ProblemCategorySubcategory").html(ProblemCategorySubcategory);
+         
+            var CustomerType = $("#Customer_Type").val();
+            $("#CustomerType").html(CustomerType);
+         
+            var UploadedFiles = $("#Uploaded_Files").val();
+            $("#UploadedFiles").html(UploadedFiles);
+         
+            var EnvironmentDetails = $("#Environment_Details").val();
+            $("#EnvironmentDetails").html(EnvironmentDetails);
+         
+            var TestorProductionorQA = $("#Test_or_Production_or_QA").val();
+            $("#TestorProductionorQA").html(TestorProductionorQA);
+         
+            var O_S = $("#OS").val();
+            $("#O_S").html(O_S);
+         
+            var VersionofOrbitRWB = $("#Version_of_Orbit_RWB").val();
+            //alert(VersionofOrbitRWB);
+            $("#VersionofOrbitRWB").html(VersionofOrbitRWB);
+         
+            var Serverdetails = $("#Server_details").val();
+            $("#Serverdetails").html(Serverdetails);
+         
+            var Data_base = $("#Database").val();
+            $("#Data_base").html(Data_base);
+         
+            var Stepstoreproduce = $("#Steps_to_reproduce").val();
+            $("#Stepstoreproduce").html(Stepstoreproduce);
+         
+            var ResponsibilityandorNavigation = $("#Responsibility_andor_Navigation").val();
+            $("#ResponsibilityandorNavigation").html(ResponsibilityandorNavigation);
+         
+            var Doesthisissueonlyhappenforthisuser = $("#Issue_user_customer").val();
+            $("#Doesthisissueonlyhappenforthisuser").html(Doesthisissueonlyhappenforthisuser);
+         
+            var Didthisfeatureworkinthepast = $("#feature_work_in_the_past").val();
+            $("#Didthisfeatureworkinthepast").html(Didthisfeatureworkinthepast);
+         
+           var Isthisconsistently_reproducible = $("input[name='consistentlyreproducible']:checked").val();
+            $("#Isthisconsistently_reproducible").html(Isthisconsistently_reproducible);
+         
+          });
+         });
+      </script>
+   </body>
+</html>
