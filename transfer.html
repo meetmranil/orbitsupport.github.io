@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SR Transfer Template</title>
+        <style type="text/css">
+        
+        .template{
+            display: none;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+                height: calc(2.25rem + 2px);
+                display: inline-block;
+        }
+
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- jQuery first, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh6U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <div class="text-center heading-section">
+        <h3>SR Transfer Template</h3>
+        <small class="text-muted">Fill out the following form and click on Generate Template button</small>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label>Engineer Name:*</label>
+        <input type="text" name="" class="form-control" id="engg_name" placeholder="Your full name as per Jira">
+    </div>
+    <div class="form-group">
+        <label>Pending Actions:</label>
+        <!--input type="text" name="" class="form-control" id="pending_actions" placeholder="Actions not completed from previous list of actions"-->
+        <textarea class="form-control" rows="2" id="pending_actions" placeholder="Actions not completed from previous list of actions"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Completed Actions:</label>
+        <textarea class="form-control" rows="3" id="completed_actions" placeholder="Actions that were completed thus far in the SR. Add delta with respect to the previous update"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Next Steps:*</label>
+        <textarea class="form-control" rows="3" id="next_steps" placeholder="List of actions to be performed by the next engineer"></textarea>
+    </div>
+    <div class="form-group" >
+        <label>Status:</label>
+        <select id="status" class="form-control col-sm-4">
+            <option value="On Hold (With Development)">On Hold (With Development)</option>
+            <option value="Support Investigating">Support Investigating</option>
+            <option value="Waiting On Customer">Waiting On Customer</option>
+            <option value="Patch Released">Patch Released</option>
+            <option value="Resolve">Resolve</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Warm Hand-Off:*</label>
+        <input type="text" name="" class="form-control" id="hand_off" placeholder="Details about who the SR is transferred to">
+    </div>
+
+    <button type="button" id="generate_template" class="btn btn-success">Generate Template</button>
+
+    <div class="text-center template">
+        <h4>SR Transfer Template is ready!</h3>
+        <small class="text-muted">Copy-Paste the content inside below box to your SR.</small>
+    </div>
+    <div class="jumbotron template">
+        <div>
+            <h6>
+                Engineer Name:
+            </h6>
+            <p id="enggname"></p>
+        </div>
+        <div>
+            <h6>
+                Pending Actions:
+            </h6>
+            <p id="pendingactions"></p>
+        </div>
+        <div>
+            <h6>
+                Completed Actions:
+            </h6>
+            <p id="completedactions"></p>
+        </div>
+        <div>
+            <h6>
+                Next Steps:
+            </h6>
+            <p id="nextsteps"></p>
+        </div>
+        <div>
+            <h6>
+                Status:
+            </h6>
+            <p id="status1"></p>
+        </div>
+        <div>
+            <h6>
+                Warm Hand-Off:
+            </h6>
+            <p id="handoff"></p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#generate_template").click(function(){
+                var enggname = $("#engg_name").val();
+                var pending = $("#pending_actions").val();
+                var completed = $("#completed_actions").val();
+                var next = $("#next_steps").val();
+                var status = $("#status").val();
+                var handoff = $("#hand_off").val();
+
+                if(!enggname || enggname == null){
+					alert("Please Enter Engineer Name:");
+					$("#engg_name").focus();
+					return false;
+				}
+
+                if(!handoff || handoff == null){
+					alert("Please Enter the details of engineer to whom you are transfering this issue to");
+					$("#hand_off").focus();
+					return false;
+				}
+						
+				if(!next){
+					alert("Please Enter the next steps");
+					$("#next_steps").focus();
+					return false;
+				}
+                $(".template").show();
+                $("#enggname").html(enggname);
+                $("#pendingactions").html(pending);
+                $("#completedactions").html(completed);
+                $("#nextsteps").html(next);
+                $("#status1").html(status);
+                $("#handoff").html(handoff);
+            });
+        });
+    </script>
+</div>
+</body>
+</html>
