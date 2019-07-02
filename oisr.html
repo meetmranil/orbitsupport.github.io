@@ -1,0 +1,605 @@
+<html>
+    <head>
+        <title>Orbit Analytics - OISR Template</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .code-fix-details {
+				display: none;
+            }
+            .space{
+                padding:  0 0 0 25px;
+             }   
+            .template {
+				display: none;
+				padding-top: 50px;
+            }
+            #fix,
+            #code_fix,
+            #one_off_patch {
+				text-transform: capitalize;
+            }
+			#copy_btn{
+				display: none;
+			}
+            .breakword{
+                word-wrap: break-word;
+            }
+            .has-user-yes{
+                display: none;
+            }
+            .has-worked{
+                display: none;
+            }
+            .has-business{
+                display: none;
+            }
+            .is-worked{
+               display: none;
+            }
+            .yes-regression{
+                display: none;
+            }
+            .list{
+                display: none;
+            }
+            .template {
+                display: none;
+                padding-top: 50px;
+            }
+            .upper{
+                text-transform: capitalize;
+            }
+            select.form-control:not([size]):not([multiple]) {
+                height: calc(2.25rem + 2px);
+                display: inline-block;
+            }
+
+        </style>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- jQuery first, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh6U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        </body>
+    </head>
+    <body>
+        <div class="container">
+            <div class="text-center heading-section">
+                <h3>OISR Template</h3>
+                <small class="text-muted">Fill out the following form and click on Generate Template button</small>
+            </div>
+            <div class="form-group problem_summary">
+                <label for="Problem Summary">Problem Summary:*</label>
+                <!--textarea  class="form-control" id="problem_summary" name="problem Summary" placeholder="Describe issue in 1-2 sentences."></textarea-->
+                <input type="text" class="form-control" id="problem_summary" name="problem Summary" placeholder="Describe issue in 1-2 sentences.">
+            </div>
+             <div class="form-group problem_description">
+                <label for="Problem Description">Problem Description:*</label>
+                <textarea  class="form-control" rows="3" id="problem_description" name="Problem Description" placeholder="Describe the reproduction steps (if available) or what has customer done before he/she faced this issue. Include as much details as possible like responsibility, navigation steps etc."></textarea>
+            </div>
+
+            <div class="form-group error_codes">
+                <label for="Error Codes">Error Codes:</label>
+                <textarea class="form-control" rows="1" id="error_codes" required placeholder="Mention any error codes (like SQL errors, OAF errors, EBS errors etc)"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="">Customer Type:*</label>
+                <select id="customer_type" class="form-control col-sm-4">
+                    <option value="Support">Support</option>
+                    <option value="implementation">Implementation</option>
+                    <option value="POC">POC</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="">Files Uploaded:*</label>
+                <textarea class="form-control" rows="1" id="files_upload" placeholder="Please name the files which are uploaded into ticket."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="">Environment Details:</label><br/>
+                <label>Instance:</label>
+                <select id="envi1" class="form-control col-sm-2">
+                    <option value="test">Test</option>
+                    <option value="prod">Production</option>
+                    <option value="Dev">Development</option>
+                </select>
+                <label>Operating System:</label>
+                <select id="os" class="form-control col-sm-1">
+                    <option value="linux">Linux</option>
+                    <option value="windows">Windows</option>
+                    <option value="others">Others</option>
+                </select>
+                <label>Version of Orbit or RWB:</label>
+                <select id="version" class="form-control col-sm-2">
+                    <optgroup label="Orbit">
+                        <option value="Orbit 8.6.03">Orbit 8.6.03</option>
+                        <option value="Orbit 8.6.02">Orbit 8.6.02</option>
+                        <option value="Orbit 8.6.01">Orbit 8.6.01</option>
+                        <option value="Orbit 8.6">Orbit 8.6</option>
+                        <option value="Orbit 8.6">Orbit 8.6.03</option>
+                        <option value="Orbit 8.5.09">Orbit 8.5.09</option>
+                        <option value="Orbit 8.5.06">Orbit 8.5.06</option>
+                        <option value="Orbit 8.5.04">Orbit 8.5.04</option>
+                        <option value="Orbit 8.5.01">Orbit 8.5.01</option>
+                        <option value="Orbit 8.5">Orbit 8.5</option>
+                    </optgroup>
+                    <optgroup label="RWB">
+                        <option value="RWB 10.7.5.6">RWB 10.7.5.6</option>
+                        <option value="RWB 10.7.5.4">RWB 10.7.5.4</option>
+                        <option value="RWB 10.7.5.2">RWB 10.7.5.2</option>
+                        <option value="RWB 10.7.5.1">RWB 10.7.5.1</option>
+                        <option value="RWB 10.7.5">RWB 10.7.5</option>
+                        <option value="RWB 10.7.4">RWB 10.7.4</option>
+                        <option value="RWB 10.7.3">RWB 10.7.3</option>
+                    </optgroup>
+                </select>
+                <label>Database :</label>
+                <select id="db_version" class="form-control col-sm-1">
+                    <option value="Oracle">Oracle</option>
+                    <option value="MSSQL">MSSQL</option>
+                    <option value="MySQL">MySQL</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Server details:*</label>
+                <input type="text" name="server details" id="server_details" class="form-control" placeholder="Please enter Weblogic (version) / Tomcat (version) / Scheduler /  Publisher ">
+            </div>
+
+            <div class="form-group">
+                <label>Steps to Reproduce*:</label>
+                <textarea class="form-control" id="reproducedsteps" rows="4" placeholder="List out the steps to reproduce the issue here. If issue is intermittent/not reproducible at our end, please mention the same and upload corresponding customer call records and/or screenshots."></textarea>
+            </div>
+
+             <div class="form-group">
+                <label>Support Research:</label>
+                <textarea class="form-control" id="research" rows="1" placeholder="Explain the research or analysis done by the support team. List any similar known issues and their corresponding JIRA ticket numbers."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Other Information</label><br/>
+                <label>Resposibility and/or Navigation: </label>
+                <!--textarea class="form-control"  row="2" placeholder="Please provide the Responsibility and/or Navigation as a part of your research"></textarea-->
+                <input type="text" class="form-control" name="" id="res" placeholder="Please provide the Responsibility and/or Navigation as a part of your research">
+            </div>
+
+            <div class="form-group user-c">
+                <label>Does this issue only happen for this user / customer?:</label>
+                <input type="radio" name="user_customer" value="yes">Yes
+                <input type="radio" name="user_customer" value="no" checked="checked">No
+            </div>
+            <div class="form-group has-user-yes">
+                <label>Please provide more deatils if the issue only happen for a user / customer*:</label>
+                <input type="text" class="form-control" name="" id="yes_please" placeholder="Plese list your findings" required>
+            </div>
+            <!--div class="form-group worked_past">
+                <label>Has this feature worked in the past?</label>
+                <input type="radio" name="feature" value="yes">Yes
+                <input type="radio" name="feature" value="no" checked="checked">No
+            </div>
+            <div class="form-group has-worked">
+                    <textarea name="list" class="form-control" id="list_changes" rows="2" placeholder="Please list the changes made or specify your findings."></textarea>
+                    <input type="text" name="" class="form-control has-worked" id="list_changes" placeholder="What changes have been made if this is failing now">
+            </div-->
+            <div class="form-group">
+                <label>Is this consistently reproducible?</label>
+                <input type="radio" name="reproduce" value="yes" checked="checked">Yes
+                <input type="radio" name="reproduce" value="no">No
+            </div>
+            <div class="form-group is-regression">
+                <label>Is this a regression? If so, in which version did it work earlier?</label>
+                <input type="radio" name="regression" value="yes">Yes
+                <input type="radio" name="regression" value="no" checked="checked">No
+            </div>
+            <div class="form-group yes-regression">
+                <label>Version of Orbit or RWB:</label>
+                <select id="version1" class="form-control col-sm-3">
+                        <optgroup label="Orbit">
+                            <option value="Orbit 8.6.03">Orbit 8.6.03</option>
+                            <option value="Orbit 8.6.02">Orbit 8.6.02</option>
+                            <option value="Orbit 8.6.01">Orbit 8.6.01</option>
+                            <option value="Orbit 8.6">Orbit 8.6</option>
+                            <option value="Orbit 8.6">Orbit 8.6.03</option>
+                            <option value="Orbit 8.5.09">Orbit 8.5.09</option>
+                            <option value="Orbit 8.5.06">Orbit 8.5.06</option>
+                            <option value="Orbit 8.5.04">Orbit 8.5.04</option>
+                            <option value="Orbit 8.5.01">Orbit 8.5.01</option>
+                            <option value="Orbit 8.5">Orbit 8.5</option>
+                        </optgroup>
+                        <optgroup label="RWB">
+                            <option value="RWB 10.7.5.6">RWB 10.7.5.6</option>
+                            <option value="RWB 10.7.5.4">RWB 10.7.5.4</option>
+                            <option value="RWB 10.7.5.2">RWB 10.7.5.2</option>
+                            <option value="RWB 10.7.5.1">RWB 10.7.5.1</option>
+                            <option value="RWB 10.7.5">RWB 10.7.5</option>
+                            <option value="RWB 10.7.4">RWB 10.7.4</option>
+                            <option value="RWB 10.7.3">RWB 10.7.3</option>
+                        </optgroup>
+                </select>
+            </div>
+            <div class="form-group has-worked">
+                    <!--textarea name="list" class="form-control" id="list_changes" rows="2" placeholder="Please list the changes made or specify your findings."></textarea-->
+                    <input type="text" name="" class="form-control has-worked" id="list_changes" placeholder="What changes have been made if this is failing now">
+            </div>
+
+            <div class="form-group">
+                <label>Why this needs a code fix?</label>
+                <input type="text" class="form-control" name="" id="businees_impact" placeholder="Please describe the business impact: (document customer impact, i.e. - customer system down, usability issues bringing down the productivity)">
+            </div>
+            <div class="form-group">
+                <label>Do you have a Complete Loss of Service?</label>
+                <input type="radio" name="lossservice" value="yes">Yes
+                <input type="radio" name="lossservice" value="no" checked="checked">No
+            </div>
+            <div class="form-group">
+                <label>Is there a workaround?</label>
+                <input type="radio" name="aworkaround" value="yes">Yes
+                <input type="radio" name="aworkaround" value="no" checked="checked">No
+            </div>
+
+
+        
+            <button type="button" id="generate_template" class="btn btn-success">Generate Template</button>
+
+			<div class="text-center template">
+				<h4>Your OISR template is ready!</h3>
+				<small class="text-muted">Copy-Paste the content inside below box to your SR.</small>
+			</div>
+            <div class="form-group template jumbotron" id="template_text">
+                <div class="form-group template-issue-summary">
+                    <h6>
+                        Problem Summary
+                    </h6>
+                    <p id="problemsummary" class="breakword"></p>
+                </div>
+                <div class="form-group template-resolution">
+                    <h6>
+                        Problem Description
+                    </h6>
+                    <p id="problemdescription"></p>
+                </div>
+                <div class="form-group" class="breakword">
+                    <h6>
+                        Error Codes
+                    </h6>
+                    <p id="errorcodes"></p>
+                </div>
+                <div>
+                   <h6>
+                       Customer Type
+                   </h6>
+                   <p id="customertype"></p>
+                </div>
+                <div>
+                    <h6>
+                       Files Uploaded
+                   </h6>
+                   <p id="filesupload"></p>
+                </div>
+                <div>
+                   <h6>
+                       Environment Details
+                   </h6>
+                </div>
+                <div>
+                   <h6 class="space">
+                       Instance Details
+                   </h6>
+                   <p id="instancedetails" class="upper space"></p>
+                </div>
+                <div>
+                   <h6 class="space">
+                       Operating System
+                   </h6>
+                   <p id="Operatingsystem" class="upper space"></p>
+                </div>
+                <div>
+                   <h6 class="space">
+                       Version Of Orbit
+                   </h6>
+                   <p id="orbitversion" class="space"></p>
+                </div>
+                <div>
+                   <h6 class="space">
+                       Server Details
+                   </h6>
+                   <p id="serverdeatils" class="upper space"></p>
+                </div>
+                <div>
+                   <h6 class="space">
+                       Database
+                   </h6>
+                   <p id="database" class="space"></p>
+                </div>
+                <div>
+                   <h6>
+                       Steps to Reproduce
+                   </h6>
+                   <p id="stepreproduce" class="breakword"></p>
+                </div>
+                <div>
+                   <h6>
+                       Support Research
+                   </h6>
+                   <p id="supportresearch" class="breakword"></p>
+                </div>
+                <div>
+                   <h6>
+                     Responsibility and/or Navigation
+                   </h6>
+                   <p id="resornav"></p>
+               </div>
+
+               <div class="form-group">
+                    <h6>
+                        Does this issue only happen for this user / customer?
+                    </h6>
+                    <p id="usercustomer" class="upper"></p>
+                </div>
+                <div class="form-group template-list" id="list">
+                    <h6>
+                        Please provide more details if the issue only happens for one user / customer.
+                    </h6>
+                    <p id="yesplease"></p>
+                </div>
+                <!--div class="form-group">
+                    <h6>
+                        Has this feature worked in the past?
+                    </h6>
+                    <p id="featurepast" class="upper"></p>
+                </div-->  
+                
+                <div class="form-group">
+                    <h6>
+                        Is this issue consistently reproducible?
+                    </h6>
+                    <p id="reproduceble" class="upper"></p>
+                </div>
+                <div class="form-group">
+                    <h6>
+                        Is this a regression? If so, in which version did it work earlier?
+                    </h6>
+                    <!--p id="regression" class="upper"></p-->
+                    <div id="regression" class="upper">
+                        <span id="is_regression">-</span>
+                        <span id="workedearlier" class="is-worked"></span>
+                    </div>
+                </div>
+                <div class="form-group template-worked">
+                    <h6>
+                        If regression, what changes have been made? 
+                    </h6>
+                    <p id="worked"></p>
+                </div>
+                
+                <div class="form-group has-business">
+                    <h6>Please describe the business impact:</h6>
+                    <p id="businessimpact"></p>
+                </div>
+                <div class="form-group">
+                    <h6>Do you have a Complete Loss of Service?</h6>
+                    <p id="lossofservice" class="upper"></p>
+                </div>
+                <div class="form-group">
+                    <h6>Is there a workaround?</h6>
+                    <p id="haveworkaround" class="upper"></p>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <script type="text/javascript">
+            
+            $(document).ready(function() {
+                $('input:radio[name=user_customer]').change(function() {
+                    if (this.value == 'yes') {
+                       $(".has-user-yes").show();
+                    } else {
+                       $(".has-user-yes").hide();
+                    }
+                });
+                /*$('input:radio[name=feature]').change(function(){
+                    if(this.value == 'yes'){
+                        $(".has-worked").show();
+                    }
+                    else{
+                        $(".has-worked").hide();
+                    }
+                });
+                */
+
+                $("input:radio[name=regression]").change(function(){
+                    if(this.value == "yes"){
+                        $(".yes-regression").show();
+                        $(".has-worked").show();
+                        //$(".yes-regression").css("display", "inline-block");
+                    }
+                    else{
+                        $(".yes-regression").hide();
+                         $(".has-worked").hide(); 
+                    }
+                });
+            });
+            
+            $(document).ready(function() { 
+                $("#generate_template").click(function() {
+                     var problemsummary = $("#problem_summary").val();            
+                     var problemdescription = $("#problem_description").val();
+                     var errorcodes = $("#error_codes").val();
+                     var probcatagory = $("#problem_category").val();
+                     var customertype = $("#customer_type").val();
+                     var filesupload = $("#files_upload").val();
+                     var envi = $("#envi1").val();
+                     var operating = $("#os").val();
+                     var orbitversion = $("#version").val();
+                     var db = $("#db_version").val();
+                     var server = $("#server_details").val();
+                     var steps = $("#reproducedsteps").val();
+                     var research = $("#research").val();
+                     var resornav = $("#res").val();
+        			
+
+                    if(!problemsummary){
+                        alert("Please Enter Problem Summary");
+                        $("#problem_summary").focus();
+                        return false;
+                    }
+                    else if(!problemdescription){
+                        alert("Please Enter Problem Description");
+                        $("#problem_description").focus();
+                        return false;
+                    }
+                    //else if(!errorcodes){
+                     //   alert("Please Enter Error Codes or N/A");
+                     //   $("#error_codes").focus();
+                    //    return false;
+                    //}
+                    else if(!filesupload){
+                        alert("Please Name the list of files uploded into OISR/ISR");
+                        $("#files_upload").focus();
+                        return false;
+                    }
+                    else if(!server){
+                        alert("Please Enter server details or N/A");
+                        $("#server_details").focus();
+                        return false;
+                    }
+
+                    else if(!steps){
+                        alert("Please Enter Issue Reproduceable steps or please enter N/A");
+                        $("#reproducedsteps").focus();
+                        return false;
+                    }
+
+        			 $("#problemsummary").html(problemsummary);
+        			 $("#problemdescription").html(problemdescription);
+                     if (!errorcodes) {
+                        $("#errorcodes").html("N/A");
+                     }
+                     else{
+                        $("#errorcodes").html(errorcodes);
+                     }
+
+                    // $("problecategory").html(probcatagory);
+                     $("#customertype").html(customertype);
+                     $("#filesupload").html(filesupload);
+                     $("#instancedetails").html(envi);
+                     $("#Operatingsystem").html(operating);
+                     $("#orbitversion").html(orbitversion);
+                     $("#serverdeatils").html(server);
+                     $("#database").html(db);
+                     $("#stepreproduce").html(steps);
+                    if(!research){
+                        $("#supportresearch").html("N/A");
+                    }
+                    else{
+                        $("#supportresearch").html(research);
+                    }
+                    if(!resornav){
+                        $("#resornav").html("N/A");
+                    }
+                    else{
+                        $("#resornav").html(resornav);
+                    }
+
+                   // alert("Please verify whether you have provided all the required information before viewing the output.");
+                    //$(".template").show();
+                    var userc = $("input:radio[name=user_customer]:checked").val();
+                    $("#usercustomer").html(userc);
+
+
+                   if(userc == "yes" ){
+                     $(".template-list").show();
+                     var listchanges = $("#yes_please").val();
+                        if(!listchanges){
+                            alert("Please enter value");
+                            $("#yes_please").focus();
+                        }
+                        else{
+                             $("#yesplease").html(listchanges);
+                        }
+                   }
+                   else {
+                     $(".template-list").hide();
+                   }
+
+                  // var featurepast = $("input:radio[name=feature]:checked").val();
+                   //$("#featurepast").html(featurepast);
+
+                   /*if(featurepast == "yes"){
+                    $(".template-worked").show();
+                    var listchanges1 = $("#list_changes").val();
+                    if(!listchanges1){
+                        alert("Please enter value");
+                        $("#list_changes").focus();
+                    }
+                    else{
+                        $("#worked").html(listchanges1);
+                    }
+                    
+                   }
+                   else{
+                    $(".template-worked").hide();
+                   }
+                   */
+                   
+                   var reproducable = $("input:radio[name=reproduce]:checked").val();
+                   $("#reproduceble").html(reproducable);
+
+                   var regression = $("input:radio[name=regression]:checked").val();
+                   $("#is_regression").html(regression);
+
+                    if(regression == "yes"){
+                        $(".is-worked").show();
+                        $(".template-worked").show();
+                        var listchanges1 = $("#list_changes").val();
+                        if(!listchanges1){
+                            alert("Please enter value");
+                            $("#list_changes").focus();
+                        }
+                        else{
+                        $("#worked").html(listchanges1);
+                        }
+                   }
+                   else{
+                    $(".is-worked").hide();
+                    $(".template-worked").hide();
+                   }
+         
+                   var version1 = $("#version1").val();
+                   $("#workedearlier").html(version1);
+
+                   var businessimpact = $("#businees_impact").val();
+                  // $("#businessimpact").html(businessimpact);
+
+                   if(businessimpact){
+                        $(".has-business").show();
+                       $("#businessimpact").html(businessimpact);
+                        
+                   }
+                   else{
+                       $(".has-business").hide();
+                   }
+
+                   var lossofservice = $("input:radio[name=lossservice]:checked").val();
+                   $("#lossofservice").html(lossofservice);
+
+                   var haveworkaround = $("input:radio[name=aworkaround]:checked").val();
+                   $("#haveworkaround").html(haveworkaround);
+
+                   $(".template").show();
+                    
+                });
+            });
+            
+        </script>
+    </body>
+</html>
