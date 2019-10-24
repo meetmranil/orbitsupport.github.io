@@ -76,43 +76,43 @@
          <div class="form-group template jumbotron" id="template_text">
             <div class="form-group template-call-summary">
                <h6>
-                  Attendees
+                  *Attendees*
                </h6>
                <p class="wrap" id="callsummary6"></p>
             </div>
             <div class="form-group template-call-summary">
                <h6>
-                  From Orbit:
+                  _From Orbit:_
                </h6>
                <p class="wrap" id="fromOrbit"></p>
             </div>
           <div class="form-group template-call-summary">
                <h6>
-                   From Customer:
+                   _From Customer:_
                </h6>
                <p class="wrap" id="fromCustomer"></p>
             </div>
          <div class="form-group template-call-summary">
                <h6>
-                  Call Summary:
+                  *Call Summary:*
               </h6>
                <p class="wrap" id="callSummary"></p>
             </div>
          <div class="form-group template-call-summary">
                <h6>
-                  Files Requested From Customer:
+                  *Files Requested From Customer:*
               </h6>
                <p class="wrap" id="filesRequested"></p>
             </div>
          <div class="form-group template-call-summary">
          <h6>
-                  Next Action plan:
+                  *Next Action plan:*
               </h6>
                <p class="wrap" id="nextAction"></p>
             </div>
          <div class="form-group template-call-summary">
          <h6>
-                  Follow-up call:
+                  *Follow-up call:*
               </h6>
                <p class="wrap" id="followUpCall"></p>
             </div>
@@ -134,11 +134,11 @@
          $(document).ready(function() {
          
          $("#generate_template").click(function() {
-            var orbit = $("#from_orbit").val();
-         var customer=$("#from_customer").val();
-         var callsummary=$("#call_summary").val();
-         var filesrequested=$("#Files_requested_from_customer").val();
-         var nextactionplan=$("#next_action_plan").val();
+            var orbit = $("#from_orbit").val().trim();
+         var customer=$("#from_customer").val().trim();
+         var callsummary=$("#call_summary").val().trim();
+         var filesrequested=$("#Files_requested_from_customer").val().trim();
+         var nextactionplan=$("#next_action_plan").val().trim();
          var followupcall=$("#follow-up_call_schedule").val();
           
       
@@ -156,10 +156,10 @@
                else $("#filesRequested").html(filesrequested);
                if (!nextactionplan){
                $("#nextAction").html("N/A");}
-               else $("#nextAction").html(nextactionplan);
+               else $("#nextAction").html("{{" + nextactionplan + "}}");
                if (!followupcall){
                $("#followUpCall").html("N/A");}
-               else $("#followUpCall").html(followupcall);
+               else $("#followUpCall").html("*{color:#14892c}" + followupcall + "{color}*");
        
          });
          });

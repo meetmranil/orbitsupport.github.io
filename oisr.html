@@ -219,97 +219,97 @@
             <div class="form-group template jumbotron" id="template_text">
                 <div class="form-group template-issue-summary">
                     <h6>
-                        Problem Summary
+                        *Problem Summary*
                     </h6>
                     <p id="problemsummary" class="breakword"></p>
                 </div>
                 <div class="form-group template-resolution">
                     <h6>
-                        Problem Description
+                        *Problem Description*
                     </h6>
                     <p id="problemdescription"></p>
                 </div>
                 <div class="form-group" class="breakword">
                     <h6>
-                        Error Codes
+                        *Error Codes*
                     </h6>
                     <p id="errorcodes"></p>
                 </div>
                 <div>
                    <h6>
-                       Customer Type
+                       *Customer Type*
                    </h6>
                    <p id="customertype"></p>
                 </div>
                 <div>
                     <h6>
-                       Files Uploaded
+                       *Files Uploaded*
                    </h6>
                    <p id="filesupload"></p>
                 </div>
                 <div>
                    <h6>
-                       Environment Details
+                       *Environment Details*
                    </h6>
                 </div>
                 <div>
                    <h6 class="space">
-                       Instance Details
+                       *_Instance Details_*
                    </h6>
                    <p id="instancedetails" class="upper space"></p>
                 </div>
                 <div>
                    <h6 class="space">
-                       Operating System
+                       *_Operating System_*
                    </h6>
                    <p id="Operatingsystem" class="upper space"></p>
                 </div>
                 <div>
                    <h6 class="space">
-                       Version Of Orbit
+                       *_Version Of Orbit_*
                    </h6>
                    <p id="orbitversion" class="space"></p>
                 </div>
                 <div>
                    <h6 class="space">
-                       Server Details
+                       *_Database_*
+                   </h6>
+                   <p id="database" class="space"></p>
+                </div>
+				<div>
+                   <h6 class="space">
+                       *_Server Details_*
                    </h6>
                    <p id="serverdeatils" class="upper space"></p>
                 </div>
                 <div>
-                   <h6 class="space">
-                       Database
-                   </h6>
-                   <p id="database" class="space"></p>
-                </div>
-                <div>
                    <h6>
-                       Steps to Reproduce
+                       *Steps to Reproduce*
                    </h6>
                    <p id="stepreproduce" class="breakword"></p>
                 </div>
                 <div>
                    <h6>
-                       Support Research
+                       *Support Research*
                    </h6>
                    <p id="supportresearch" class="breakword"></p>
                 </div>
                 <div>
                    <h6>
-                     Responsibility and/or Navigation
+                     *Responsibility and/or Navigation*
                    </h6>
                    <p id="resornav"></p>
                </div>
 
                <div class="form-group">
                     <h6>
-                        Does this issue only happen for this user / customer?
+                        *Does this issue only happen for this user / customer?*
                     </h6>
                     <p id="usercustomer" class="upper"></p>
                 </div>
                 <div class="form-group template-list" id="list">
                     <h6>
-                        Please provide more details if the issue only happens for one user / customer.
+                        *_Please provide more details if the issue only happens for one user / customer._*
                     </h6>
                     <p id="yesplease"></p>
                 </div>
@@ -322,13 +322,13 @@
                 
                 <div class="form-group">
                     <h6>
-                        Is this issue consistently reproducible?
+                        *Is this issue consistently reproducible?*
                     </h6>
                     <p id="reproduceble" class="upper"></p>
                 </div>
                 <div class="form-group">
                     <h6>
-                        Is this a regression? If so, in which version did it work earlier?
+                        *Is this a regression? If so, in which version did it work earlier?*
                     </h6>
                     <!--p id="regression" class="upper"></p-->
                     <div id="regression" class="upper">
@@ -338,21 +338,21 @@
                 </div>
                 <div class="form-group template-worked">
                     <h6>
-                        If regression, what changes have been made? 
+                        *_If regression, what changes have been made?_* 
                     </h6>
                     <p id="worked"></p>
                 </div>
                 
                 <div class="form-group has-business">
-                    <h6>Please describe the business impact:</h6>
+                    <h6>*Please describe the business impact:*</h6>
                     <p id="businessimpact"></p>
                 </div>
                 <div class="form-group">
-                    <h6>Do you have a Complete Loss of Service?</h6>
+                    <h6>*Do you have a Complete Loss of Service?*</h6>
                     <p id="lossofservice" class="upper"></p>
                 </div>
                 <div class="form-group">
-                    <h6>Is there a workaround?</h6>
+                    <h6>*Is there a workaround?*</h6>
                     <p id="haveworkaround" class="upper"></p>
                 </div>
 
@@ -398,20 +398,20 @@
             
             $(document).ready(function() { 
                 $("#generate_template").click(function() {
-                     var problemsummary = $("#problem_summary").val();            
-                     var problemdescription = $("#problem_description").val();
-                     var errorcodes = $("#error_codes").val();
+                     var problemsummary = $("#problem_summary").val().trim();            
+                     var problemdescription = $("#problem_description").val().trim();
+                     var errorcodes = $("#error_codes").val().trim();
                      var probcatagory = $("#problem_category").val();
-                     var customertype = $("#customer_type").val();
-                     var filesupload = $("#files_upload").val();
-                     var envi = $("#envi1").val();
-                     var operating = $("#os").val();
+                     var customertype = $("#customer_type").val().trim();
+                     var filesupload = $("#files_upload").val().trim();
+                     var envi = $("#envi1").val().trim();
+                     var operating = $("#os").val().trim();
                      var orbitversion = $("#version").val();
-                     var db = $("#db_version").val();
-                     var server = $("#server_details").val();
-                     var steps = $("#reproducedsteps").val();
-                     var research = $("#research").val();
-                     var resornav = $("#res").val();
+                     var db = $("#db_version").val().trim();
+                     var server = $("#server_details").val().trim();
+                     var steps = $("#reproducedsteps").val().trim();
+                     var research = $("#research").val().trim();
+                     var resornav = $("#res").val().trim();
         			
 
                     if(!problemsummary){
@@ -446,13 +446,13 @@
                         return false;
                     }
 
-        			 $("#problemsummary").html(problemsummary);
+        			 $("#problemsummary").html("{{" + problemsummary + "}}");
         			 $("#problemdescription").html(problemdescription);
                      if (!errorcodes) {
                         $("#errorcodes").html("N/A");
                      }
                      else{
-                        $("#errorcodes").html(errorcodes);
+                        $("#errorcodes").html("{color:red}" + errorcodes + "{color}");
                      }
 
                     // $("problecategory").html(probcatagory);
@@ -463,12 +463,12 @@
                      $("#orbitversion").html(orbitversion);
                      $("#serverdeatils").html(server);
                      $("#database").html(db);
-                     $("#stepreproduce").html(steps);
+                     $("#stepreproduce").html("{{" + steps + "}}");
                     if(!research){
                         $("#supportresearch").html("N/A");
                     }
                     else{
-                        $("#supportresearch").html(research);
+                        $("#supportresearch").html("{{" + research + "}}");
                     }
                     if(!resornav){
                         $("#resornav").html("N/A");
@@ -549,7 +549,7 @@
 
                    if(businessimpact){
                         $(".has-business").show();
-                       $("#businessimpact").html(businessimpact);
+                       $("#businessimpact").html("{quote}" + businessimpact + "{quote}");
                         
                    }
                    else{

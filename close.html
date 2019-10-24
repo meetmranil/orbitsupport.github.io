@@ -89,43 +89,43 @@
             <div class="form-group template jumbotron" id="template_text">
                 <div class="form-group template-issue-summary">
                     <h6>
-                        Issue Summary
+                        *Issue Summary*
                     </h6>
                     <p class="wrap" id="issuesummary"></p>
                 </div>
                 <div class="form-group template-resolution">
                     <h6>
-                        Resolution
+                        *Resolution*
                     </h6>
                     <p class="wrap" id="resolution"></p>
                 </div>
                 <div class="form-group template-reported-version">
                     <h6>
-                        Reported Version
+                        *Reported Version*
                     </h6>
                     <p id="reportedversion"></p>
                 </div>
                 <div class="form-group template-has-code-fix">
                     <h6>
-                        Does this issue has a code fix?
+                        *Does this issue has a code fix?*
                     </h6>
                     <p id="code_fix"></p>
                 </div>
                 <div class="form-group template-one-off-patch">
                     <h6>
-                        Is one-off-patch provided?
+                        *Is one-off-patch provided?*
                     </h6>
                     <p id="one_off_patch"></p>
                 </div>
                 <div class="form-group template-fixed-version">
                     <h6>
-                        Fixed Version
+                        *Fixed Version*
                     </h6>
                     <p id="template_fixed_version"></p>
                 </div>
                 <div class="form-group template-knowledge-base">
                     <h6>
-                        Did you create any knowledge base for this issue?
+                        *Did you create any knowledge base for this issue?*
                     </h6>
                     <p id="knowledge_base"></p>
                 </div>
@@ -146,8 +146,8 @@
             $(document).ready(function() {
             
             $("#generate_template").click(function() {
-             var issuesummary = $("#issue_summary").val();            
-             var resolution = $("#Resolution").val();
+             var issuesummary = $("#issue_summary").val().trim();            
+             var resolution = $("#Resolution").val().trim();
 			 
 			 if(!issuesummary || !resolution){
 				alert("Please fill out Issue Summary and Resolution");
@@ -155,8 +155,8 @@
 			 }
 			 
 			 $(".template").show();
-			 $("#issuesummary").html(issuesummary);
-			 $("#resolution").html(resolution);
+			 $("#issuesummary").html("{{" + issuesummary + "}}");
+			 $("#resolution").html("{{" + resolution + "}}");
             
              var reportedversion = $("#Reported_Version").val();
              $("#reportedversion").html(reportedversion);
@@ -172,7 +172,7 @@
             
                //$(".template-fixed-version").show();
                var fixedversion = $("#fixed_version").val();
-               $("#template_fixed_version").html(fixedversion);
+               $("#template_fixed_version").html("*{color:#14892c}" + fixedversion + "{color}*");
             
              } else {
                $("#template_fixed_version").html("N/A");
