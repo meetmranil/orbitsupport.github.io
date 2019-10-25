@@ -155,8 +155,8 @@
 			 }
 			 
 			 $(".template").show();
-			 $("#issuesummary").html("{{" + issuesummary + "}}");
-			 $("#resolution").html("{{" + resolution + "}}");
+			 $("#issuesummary").html(issuesummary);
+			 $("#resolution").html(resolution);
             
              var reportedversion = $("#Reported_Version").val();
              $("#reportedversion").html(reportedversion);
@@ -172,7 +172,7 @@
             
                //$(".template-fixed-version").show();
                var fixedversion = $("#fixed_version").val();
-               $("#template_fixed_version").html("*{color:#14892c}" + fixedversion + "{color}*");
+               $("#template_fixed_version").html(fixedversion);
             
              } else {
                $("#template_fixed_version").html("N/A");
