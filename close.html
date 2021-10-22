@@ -81,6 +81,12 @@
                 <input type="radio" name="knowledgebase" id="yes" disabled="disabled" value="Yes">Yes
                 <input type="radio" name="knowledgebase" id="no" checked="checked" value="No">No
             </div>
+	    <!--div> added by Maruthi create oisr 23-oct-21 </div-->
+	    <div class="form-group create_oisr" id = "oisr">
+                <label>Did you create OISR for this issue?:</label>
+                <input type="radio" name="creteoisr" id="yes"  value="Yes">Yes
+                <input type="radio" name="creteoisr" id="no" checked="checked" value="No">No
+            </div>
             <button type="button" id="generate_template" class="btn btn-success">Generate Template</button>
 			<div class="text-center template">
 				<h4>Your template is ready!</h3>
@@ -185,6 +191,10 @@
              var knowledge_base = $("input[name='knowledgebase']:checked").val();
              $("#knowledge_base").html(knowledge_base);
             
+	    // added by Maruthi create oisr 23-oct-21
+	    var create_OISR = $("input[name='creteoisr']:checked").val();
+	    $("#create_oisr").html(create_OISR);	    
+	
             });
             });
             
